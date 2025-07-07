@@ -10,7 +10,7 @@ const port = 3000;
 app.get('/ask', async (req, res) => {
   console.log(JSON.stringify(req.query));
   const query = req.query;
-  if (query.topic) {
+  if (query.question) {
     var model = "gpt-3.5-turbo";
     if (query.model) {
         model = `${query.model}`;
@@ -18,11 +18,11 @@ app.get('/ask', async (req, res) => {
     const response = await openai.responses.create({
       model: model,
       input: 
-      `Generate an answer for this question: ${query.topic}.
+      `Generate an answer for this question: ${query.question}.
 
        Format JSON Object:
        {
-        "question": "${query.topic}"
+        "question": "${query.question}"
         "answer": "YOUR ANSWER HERE"
        }
 
