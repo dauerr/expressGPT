@@ -28,7 +28,8 @@ app.get('/ask', async (req, res) => {
 
        Keep in mind: No extra text, no markdown! It is VERY important that all the information you provide is 100% correct.
        The reply has to be parsed in the next step by the client
-      `
+      `,
+      temperature: 0.7
     });
   
     console.log(response.output_text);
